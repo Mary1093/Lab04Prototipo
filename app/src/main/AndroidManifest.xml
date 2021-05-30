@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab04Prototipo">
+        <activity
+            android:name=".MainNavigationDrawer"
+            android:label="@string/title_activity_main_navigation_drawer"
+            android:theme="@style/Theme.Lab04Prototipo.NoActionBar"></activity>
+        <activity
+            android:name=".Registro"
+            android:label="@string/title_activity_registro"
+            android:theme="@style/Theme.Lab04Prototipo.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

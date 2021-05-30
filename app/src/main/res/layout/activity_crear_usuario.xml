@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_layout"
+    android:layout_width="400dp"
+    android:layout_height="700dp"
+    android:layout_marginStart="1dp"
+    android:layout_marginTop="20dp"
+    android:background="@color/blue"
+    android:backgroundTint="#FFFFFF"
+    tools:context=".activities.Registro_activity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_view"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_span="2"
+                app:srcCompat="@drawable/create" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/fullName_txtFld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Username"
+                android:hint="Username"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="#0F1432"
+                android:textColorHint="#0A0D1C" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/password_txtFld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Password"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true"
+                android:textColor="#131832"
+                android:textColorHint="#0E122C" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Nombre"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="#131832"
+                android:textColorHint="#0E122C" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/apellidos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Apellidos"
+                android:hint="Apellidos"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="#131832"
+                android:textColorHint="#0E122C" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/correo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Correo"
+                android:hint="Correo"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="#131832"
+                android:textColorHint="#0E122C" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/fechNac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Fecha Nacimiento"
+                android:hint="Fecha Nacimiento"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="#131832"
+                android:textColorHint="#0E122C" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/direccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Dirección"
+                android:hint="Dirección"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="#131832"
+                android:textColorHint="#0E122C" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/telOficina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Teléfono oficina"
+                android:hint="Teléfono oficina"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="#131832"
+                android:textColorHint="#0E122C" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/celular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_span="2"
+                android:autofillHints="Celular"
+                android:hint="Celular"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="true"
+                android:textColor="#131832"
+                android:textColorHint="#0E122C" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/form_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="30dp"
+                android:layout_span="2"
+                android:background="#232C60"
+                android:enabled="true"
+                android:text="Registrar"
+                android:textColor="#FFFFFF" />
+        </TableRow>
+
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
