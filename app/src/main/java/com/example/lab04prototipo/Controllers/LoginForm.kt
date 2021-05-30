@@ -16,6 +16,8 @@ class LoginForm : MainActivity(){
     private var _forgot_password_txt: TextView? = null
     private var _register_txt: TextView? = null
 
+    private fun initActiviry(){
 
+    }
 
 }
