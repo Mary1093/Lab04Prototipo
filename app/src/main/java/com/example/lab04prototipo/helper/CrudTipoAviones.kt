@@ -9,8 +9,8 @@ class CrudTipoAviones : AppCompatActivity(){
     lateinit var lista: RecyclerView
     var position : Int = 0
 
-    fun onCreate(savedInstanceState: Bundle?){
+    /*fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
 
-    }
+    }*/
 }
