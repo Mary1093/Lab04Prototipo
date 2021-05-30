@@ -1,8 +1,9 @@
 package com.example.lab04prototipo.Data
 
 import com.example.lab04prototipo.Entities.*
+import java.io.Serializable
 
-object DataBaseDummy {
+object DataBaseDummy : Serializable{
     var usuarios = inicializarUsuarios()
     var tiposAvion = inicializarTipoAvion()
     var rutas = inicializarRutas()
