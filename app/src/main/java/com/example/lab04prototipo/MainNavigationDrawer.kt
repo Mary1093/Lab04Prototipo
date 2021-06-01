@@ -1,7 +1,11 @@
 package com.example.lab04prototipo
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,9 +17,12 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import com.example.lab04prototipo.Data.DataBaseDummy
 
-class MainNavigationDrawer : AppCompatActivity() {
+class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
+    private var DB = DataBaseDummy
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,8 +43,7 @@ class MainNavigationDrawer : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -52,5 +58,33 @@ class MainNavigationDrawer : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun message(text: String?){
+        Toast.makeText(applicationContext, text, Toast.LENGTH_LONG).show()
+    }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val id: Int = item.getItemId()
+      /*  if (id == R.id.nav_home) {
+            message("COMPLETE JOB APPLICATION!")
+            abrirCompletar()
+        }
+        if (id == R.id.nav_gallery) {
+            message("CHECK JOB APPLICATIONS!")
+            abrirVisualizar()
+        }*/
+        if (id == R.id.nav_slideshow) {
+            message("LOGOUT!")
+            logout()
+        }
+        val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+        drawer.closeDrawer(GravityCompat.START)
+        return true
+    }
+    fun logout(){
+        val intent = Intent(applicationContext, MainActivity::class.java)
+         intent.putExtra("model", DB)
+         startActivity(intent)
+         finish()
     }
 }
