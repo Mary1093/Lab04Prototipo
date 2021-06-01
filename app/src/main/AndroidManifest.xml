@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab04Prototipo">
+        <activity android:name=".helper.CrudTipoAviones"></activity>
+
         <activity
             android:name=".MainNavigationDrawer"
             android:label="@string/title_activity_main_navigation_drawer"

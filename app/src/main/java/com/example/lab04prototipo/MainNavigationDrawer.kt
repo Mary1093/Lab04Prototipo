@@ -18,7 +18,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.FragmentTransaction
 import com.example.lab04prototipo.Data.DataBaseDummy
+import com.example.lab04prototipo.helper.CrudTipoAviones
 
 class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
@@ -47,6 +49,7 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -64,18 +67,12 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
         Toast.makeText(applicationContext, text, Toast.LENGTH_LONG).show()
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val id: Int = item.getItemId()
-      /*  if (id == R.id.nav_home) {
-            message("COMPLETE JOB APPLICATION!")
-            abrirCompletar()
-        }
-        if (id == R.id.nav_gallery) {
-            message("CHECK JOB APPLICATIONS!")
-            abrirVisualizar()
-        }*/
-        if (id == R.id.nav_slideshow) {
-            message("LOGOUT!")
-            logout()
+        when (item.itemId){
+
+            R.id.nav_tipoA -> {
+                val i = Intent(this, CrudTipoAviones::class.java)
+                startActivity(i)
+            }
         }
         val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
         drawer.closeDrawer(GravityCompat.START)
