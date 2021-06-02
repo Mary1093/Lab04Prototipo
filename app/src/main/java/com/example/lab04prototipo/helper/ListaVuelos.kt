@@ -11,28 +11,30 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lab04prototipo.Data.DataAccessLogin
 import com.example.lab04prototipo.Data.DataBaseDummy
 import com.example.lab04prototipo.Entities.TipoAvion
+import com.example.lab04prototipo.Entities.Vuelos
 import com.example.lab04prototipo.R
 import com.example.lab04prototipo.RecyclerView_Adapter
+import com.example.lab04prototipo.RecyclerView_AdapterVuelos
 import com.google.android.material.snackbar.Snackbar
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CrudTipoAviones : AppCompatActivity(){
+class ListaVuelos: AppCompatActivity() {
 
     private var DB = DataBaseDummy
     lateinit var lista: RecyclerView
-    lateinit var tipoAvion: TipoAvion
-    lateinit var adaptador: RecyclerView_Adapter
-    var archived = ArrayList<TipoAvion>()
+    lateinit var listaVuelos: Vuelos
+    lateinit var adaptador: RecyclerView_AdapterVuelos
+    var archived = ArrayList<Vuelos>()
     var position : Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crud_tipo_avion)
+        setContentView(R.layout.activity_list_vuelos)
 
         val searchIcon = findViewById<ImageView>(R.id.search_mag_icon)
         searchIcon.setColorFilter(Color.BLACK)
@@ -47,9 +49,9 @@ class CrudTipoAviones : AppCompatActivity(){
         lista.layoutManager = LinearLayoutManager(lista.context)
         lista.setHasFixedSize(true)
 
-        findViewById<SearchView>(R.id.tipoA_search).setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        findViewById<SearchView>(R.id.vuelos_search).setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-               return false
+                return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -65,7 +67,7 @@ class CrudTipoAviones : AppCompatActivity(){
                 val fromPosition: Int = viewHolder.adapterPosition
                 val toPosition: Int = target.adapterPosition
 
-                Collections.swap(DB.tiposAvion, fromPosition, toPosition)
+                Collections.swap(DB.vuelos, fromPosition, toPosition)
 
                 lista.adapter?.notifyItemMoved(fromPosition, toPosition)
 
@@ -77,30 +79,30 @@ class CrudTipoAviones : AppCompatActivity(){
                 position = viewHolder.adapterPosition
                 var quien: String = ""
 
-                if(direction == ItemTouchHelper.LEFT){
-                    tipoAvion = TipoAvion(DB.tiposAvion[position].idTipoAvion, DB.tiposAvion[position].annio, DB.tiposAvion[position].modelo, DB.tiposAvion[position].marca, DB.tiposAvion[position].numFilas, DB.tiposAvion[position].numAsientos, DB.tiposAvion[position].cantidadPasajeros)
+                if(direction == ItemTouchHelper.RIGHT){
+                    listaVuelos = Vuelos(DB.vuelos[position].codigo, DB.vuelos[position].tipoVuelo, DB.vuelos[position].avionIda, DB.vuelos[position].avionVuelta, DB.vuelos[position].horario)
                     //DB.deletePerson(position)
                     lista.adapter?.notifyItemRemoved(position)
 
-                    Snackbar.make(lista, tipoAvion.idTipoAvion + "Se eliminaría...", Snackbar.LENGTH_LONG).setAction("Undo") {
-                        DB.tiposAvion.add(position, tipoAvion)
+                    Snackbar.make(lista, listaVuelos.codigo + "Se eliminaría...", Snackbar.LENGTH_LONG).setAction("Undo") {
+                        DB.vuelos.add(position, listaVuelos)
                         lista.adapter?.notifyItemInserted(position)
                     }.show()
-                    adaptador = RecyclerView_Adapter(DB.tiposAvion)
+                    adaptador = RecyclerView_AdapterVuelos(DB.vuelos)
                     lista.adapter = adaptador
                 }else{
-                    tipoAvion = TipoAvion(DB.tiposAvion[position].idTipoAvion, DB.tiposAvion[position].annio, DB.tiposAvion[position].modelo, DB.tiposAvion[position].marca, DB.tiposAvion[position].numFilas, DB.tiposAvion[position].numAsientos, DB.tiposAvion[position].cantidadPasajeros)
-                    archived.add(tipoAvion)
+                    listaVuelos = Vuelos(DB.vuelos[position].codigo, DB.vuelos[position].tipoVuelo, DB.vuelos[position].avionIda, DB.vuelos[position].avionVuelta, DB.vuelos[position].horario)
+                    archived.add(listaVuelos)
 
                     //personas.deletePerson(position)
                     lista.adapter?.notifyItemRemoved(position)
 
-                    Snackbar.make(lista, tipoAvion.idTipoAvion + "Se editaría...", Snackbar.LENGTH_LONG).setAction("Undo") {
-                        archived.removeAt(archived.lastIndexOf(tipoAvion))
-                        DB.tiposAvion.add(position, tipoAvion)
+                    Snackbar.make(lista, listaVuelos.codigo + "Se editaría...", Snackbar.LENGTH_LONG).setAction("Undo") {
+                        archived.removeAt(archived.lastIndexOf(listaVuelos))
+                        DB.vuelos.add(position, listaVuelos)
                         lista.adapter?.notifyItemInserted(position)
                     }.show()
-                    adaptador = RecyclerView_Adapter(DB.tiposAvion)
+                    adaptador = RecyclerView_AdapterVuelos(DB.vuelos)
                     lista.adapter = adaptador
                     //getListOfPersons()
                 }
@@ -108,11 +110,11 @@ class CrudTipoAviones : AppCompatActivity(){
 
             override fun onChildDraw(c: Canvas, recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, dX: Float, dY: Float, actionState: Int, isCurrentlyActive: Boolean) {
 
-             RecyclerViewSwipeDecorator.Builder(this@CrudTipoAviones, c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(this@CrudTipoAviones, R.color.red))
-                        .addSwipeLeftActionIcon(R.drawable.delete)
-                        .addSwipeRightBackgroundColor(ContextCompat.getColor(this@CrudTipoAviones, R.color.green))
-                        .addSwipeRightActionIcon(R.drawable.edit)
+                RecyclerViewSwipeDecorator.Builder(this@ListaVuelos, c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                       // .addSwipeLeftBackgroundColor(ContextCompat.getColor(this@ListaVuelos, R.color.red))
+                       // .addSwipeLeftActionIcon(R.drawable.delete)
+                        .addSwipeRightBackgroundColor(ContextCompat.getColor(this@ListaVuelos, R.color.green))
+                        .addSwipeRightActionIcon(R.drawable.edit2)
                         .create()
                         .decorate()
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
@@ -127,11 +129,11 @@ class CrudTipoAviones : AppCompatActivity(){
 
     }//end of oncreate
     fun getListOfTipoAvion(){
-        val tipoA = ArrayList<TipoAvion>()
-        for(a in DB.tiposAvion){
-            tipoA.add(a)
+        val vue = ArrayList<Vuelos>()
+        for(a in DB.vuelos){
+            vue.add(a)
         }
-        adaptador = RecyclerView_Adapter(tipoA)
+        adaptador = RecyclerView_AdapterVuelos(vue)
         lista.adapter =adaptador
     }
 }

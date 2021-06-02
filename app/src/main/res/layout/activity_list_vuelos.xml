@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".helper.CrudTipoAviones">
+    tools:context=".helper.ListaVuelos">
 
     <LinearLayout
         android:id="@+id/people_content_id"
@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/tipoA_search"
+            android:id="@+id/vuelos_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textCursorDrawable="@null"

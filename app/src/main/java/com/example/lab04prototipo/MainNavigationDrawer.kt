@@ -21,6 +21,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import com.example.lab04prototipo.Data.DataBaseDummy
 import com.example.lab04prototipo.helper.CrudTipoAviones
+import com.example.lab04prototipo.helper.ListaVuelos
 
 class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
@@ -71,6 +72,10 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
 
             R.id.nav_tipoA -> {
                 val i = Intent(this, CrudTipoAviones::class.java)
+                startActivity(i)
+            }
+            R.id.nav_gallery -> {
+                val i = Intent(this, ListaVuelos::class.java)
                 startActivity(i)
             }
         }
