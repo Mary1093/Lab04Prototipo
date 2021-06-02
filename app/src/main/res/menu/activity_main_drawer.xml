@@ -6,21 +6,34 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/about"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/logout"
-            android:title="Logout" />
+            android:icon="@drawable/vuelos"
+            android:title="Vuelos" />
 
         <item
             android:id="@+id/nav_tipoA"
             android:icon="@drawable/plane"
             android:title="Tipos de avion" />
+        <item
+            android:id="@+id/nav_misReservas"
+            android:icon="@drawable/reserva"
+            android:title="Mis reservas" />
+        <item
+            android:id="@+id/nav_pagarReserva"
+            android:icon="@drawable/pay"
+            android:title="Pagar reserva" />
+        <item
+            android:id="@+id/nav_checkIn"
+            android:icon="@drawable/checkin"
+            android:title="CheckIn" />
+
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/logout"
+            android:title="Logout" />
 
     </group>
 </menu>
