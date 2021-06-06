@@ -52,6 +52,9 @@ open class MainActivity : AppCompatActivity() {
             message("INCORRECTO")
         }
     }
+    fun logout(){
+
+    }
 
 
 }

@@ -78,6 +78,9 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
                 val i = Intent(this, ListaVuelos::class.java)
                 startActivity(i)
             }
+            R.id.nav_slideshow ->{
+                logout()
+            }
         }
         val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
         drawer.closeDrawer(GravityCompat.START)
