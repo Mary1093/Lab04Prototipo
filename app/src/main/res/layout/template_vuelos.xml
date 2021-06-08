@@ -15,7 +15,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="0"
-        app:srcCompat="@drawable/vuelos" />
+        app:srcCompat="@drawable/plane" />
 
     <TextView
         android:id="@+id/id_vuelo"
@@ -40,6 +40,14 @@
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
         android:text="TextView" />
+    <TextView
+        android:id="@+id/horario2"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:text="TextView" />
+
 
 
 </LinearLayout>

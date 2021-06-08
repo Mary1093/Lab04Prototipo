@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lab04prototipo.Entities.TipoAvion
 import com.example.lab04prototipo.Entities.Vuelos
+import com.example.lab04prototipo.activities.Reserva_activity
 
 class RecyclerView_AdapterVuelos(private var items: ArrayList<Vuelos>): RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
@@ -38,13 +39,14 @@ class RecyclerView_AdapterVuelos(private var items: ArrayList<Vuelos>): Recycler
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = itemsList?.get(position)
-        holder.itemView.findViewById<TextView>(R.id.id_vuelo)?.text = item?.codigo
-        holder.itemView.findViewById<TextView>(R.id.tipo_vuelo)?.text = item?.tipoVuelo.toString()
-        holder.itemView.findViewById<TextView>(R.id.horario)?.text = item?.horario.toString()
-        //holder.itemView.findViewById<ImageView>(R.id.ivFoto).setImageResource(item?.foto!!)
+
+        holder.itemView.findViewById<TextView>(R.id.id_vuelo)?.text = item?.horario?.diaSemana
+        holder.itemView.findViewById<TextView>(R.id.tipo_vuelo)?.text = "Salida: "+item?.horario?.ruta?.origen+" "+item?.horario?.horaSalida.toString() +":"+ item?.horario?.minutosSalida.toString()+"0"
+        holder.itemView.findViewById<TextView>(R.id.horario)?.text = "Llegada: "+ item?.horario?.ruta?.destino+" "+item?.horario?.horaLlegada.toString()+":" + item?.horario?.minutosLlegada.toString()+"0"
+        holder.itemView.findViewById<TextView>(R.id.horario2)?.text = "Precio $"+item?.horario?.precio.toString()
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(mcontext, MainActivity::class.java)
+            val intent = Intent(mcontext, Reserva_activity::class.java)
             intent.putExtra("passselectedcountry", itemsList?.get(position))
             mcontext.startActivity(intent)
             Log.d("Selected:", itemsList?.get(position)?.codigo.toString())
