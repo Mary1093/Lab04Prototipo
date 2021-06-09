@@ -122,8 +122,6 @@ class ListaVuelos: AppCompatActivity() {
 
         }
 
-
-
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
         itemTouchHelper.attachToRecyclerView(lista)
 
