@@ -71,10 +71,10 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
 
-            R.id.nav_tipoA -> {
+          /*  R.id.nav_tipoA -> {
                 val i = Intent(this, CrudTipoAviones::class.java)
                 startActivity(i)
-            }
+            }*/
             R.id.nav_gallery -> {
                 val i = Intent(this, ListaVuelos::class.java)
                 startActivity(i)

@@ -13,10 +13,10 @@
             android:icon="@drawable/vuelos2"
             android:title="Vuelos" />
 
-        <item
+    <!--    <item
             android:id="@+id/nav_tipoA"
             android:icon="@drawable/aviones"
-            android:title="Tipos de avion" />
+            android:title="Tipos de avion" /> -->
         <item
             android:id="@+id/nav_misReservas"
             android:icon="@drawable/misreservas"

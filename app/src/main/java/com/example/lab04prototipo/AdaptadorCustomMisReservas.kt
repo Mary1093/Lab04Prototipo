@@ -46,12 +46,12 @@ class RecyclerView_AdapterMisReservas(private var items: ArrayList<Reserva>): Re
         holder.itemView.findViewById<TextView>(R.id.formas_pago)?.text = "Cantidad asientos:\n "+ item?.cantAsientos.toString()
         holder.itemView.findViewById<TextView>(R.id.vuelo)?.text = item?.vuelos?.horario?.ruta?.origen+"/\n"+ item?.vuelos?.horario?.ruta?.destino
 
-        holder.itemView.setOnClickListener {
+       /* holder.itemView.setOnClickListener {
             val intent = Intent(mcontext, Reserva_activity::class.java)
             intent.putExtra("passselectedcountry", itemsList?.get(position))
             mcontext.startActivity(intent)
             Log.d("Selected:", itemsList?.get(position)?.numero.toString())
-        }
+        }*/
     }
 
 

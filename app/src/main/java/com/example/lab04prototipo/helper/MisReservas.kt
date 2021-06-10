@@ -71,7 +71,7 @@ class MisReservas : AppCompatActivity(){
 
                 return false
             }
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+          override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                 position = viewHolder.adapterPosition
                 var quien: String = ""

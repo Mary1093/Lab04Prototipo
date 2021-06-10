@@ -39,6 +39,11 @@
 
         </activity>
         <activity
+            android:name=".activities.Change_password"
+            android:label="Cambio de contraseña">
+
+        </activity>
+        <activity
             android:name=".activities.Reserva_activity"
             android:label="Reserva">
 

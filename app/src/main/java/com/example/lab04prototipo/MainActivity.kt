@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.example.lab04prototipo.Data.DataAccessAdministrador
 import com.example.lab04prototipo.Data.DataAccessLogin
 import com.example.lab04prototipo.Data.DataBaseDummy
+import com.example.lab04prototipo.activities.Change_password
 import com.example.lab04prototipo.activities.Registro_activity
 
 open class MainActivity : AppCompatActivity() {
@@ -74,7 +75,7 @@ open class MainActivity : AppCompatActivity() {
     }
 
     private fun changeUserPassword() {
-        intent = redirectActivityTo(Registro_activity::class.java)
+        intent = redirectActivityTo(Change_password::class.java)
         intent.putExtra("editable", true)
         startActivity(intent)
     }

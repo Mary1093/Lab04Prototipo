@@ -15,5 +15,12 @@ class DataAccessLogin (private var DB: DataBaseDummy) {
         }
         return usuario
     }
+    fun setPassword(user: String, password: String){
+        for (obj : Usuario in DB.usuarios) {
+            if(obj.nombre.equals(user)){
+                obj.password= password
+            }
+        }
+    }
     
 }
