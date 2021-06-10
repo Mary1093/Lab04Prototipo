@@ -41,9 +41,9 @@ class RecyclerView_AdapterVuelos(private var items: ArrayList<Vuelos>): Recycler
         val item = itemsList?.get(position)
 
         holder.itemView.findViewById<TextView>(R.id.id_vuelo)?.text = item?.horario?.diaSemana
-        holder.itemView.findViewById<TextView>(R.id.tipo_vuelo)?.text = "Salida: "+item?.horario?.ruta?.origen+" "+item?.horario?.horaSalida.toString() +":"+ item?.horario?.minutosSalida.toString()+"0"
-        holder.itemView.findViewById<TextView>(R.id.horario)?.text = "Llegada: "+ item?.horario?.ruta?.destino+" "+item?.horario?.horaLlegada.toString()+":" + item?.horario?.minutosLlegada.toString()+"0"
-        holder.itemView.findViewById<TextView>(R.id.horario2)?.text = "Precio $"+item?.horario?.precio.toString()
+        holder.itemView.findViewById<TextView>(R.id.tipo_vuelo)?.text = "Salida:\n "+item?.horario?.ruta?.origen+" "+item?.horario?.horaSalida.toString() +":"+ item?.horario?.minutosSalida.toString()+"0"
+        holder.itemView.findViewById<TextView>(R.id.horario)?.text = "Llegada: \n"+ item?.horario?.ruta?.destino+" "+item?.horario?.horaLlegada.toString()+":" + item?.horario?.minutosLlegada.toString()+"0"
+        holder.itemView.findViewById<TextView>(R.id.horario2)?.text = "Precio:\n $"+item?.horario?.precio.toString()
 
         holder.itemView.setOnClickListener {
             val intent = Intent(mcontext, Reserva_activity::class.java)

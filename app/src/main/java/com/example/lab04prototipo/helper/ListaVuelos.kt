@@ -73,7 +73,6 @@ class ListaVuelos: AppCompatActivity() {
 
                 return false
             }
-
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                 position = viewHolder.adapterPosition

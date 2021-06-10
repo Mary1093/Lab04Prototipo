@@ -22,6 +22,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.lab04prototipo.Data.DataBaseDummy
 import com.example.lab04prototipo.helper.CrudTipoAviones
 import com.example.lab04prototipo.helper.ListaVuelos
+import com.example.lab04prototipo.helper.MisReservas
 
 class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
@@ -76,6 +77,10 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
             }
             R.id.nav_gallery -> {
                 val i = Intent(this, ListaVuelos::class.java)
+                startActivity(i)
+            }
+            R.id.nav_misReservas ->{
+                val i = Intent(this, MisReservas::class.java)
                 startActivity(i)
             }
             R.id.nav_slideshow ->{

@@ -41,9 +41,10 @@ class RecyclerView_AdapterMisReservas(private var items: ArrayList<Reserva>): Re
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = itemsList?.get(position)
 
-        holder.itemView.findViewById<TextView>(R.id.id_reserva)?.text = item?.numero.toString()
-        holder.itemView.findViewById<TextView>(R.id.monto_reserva)?.text = item?.monto.toString()
-        holder.itemView.findViewById<TextView>(R.id.formas_pago)?.text = item?.cantAsientos.toString()
+        holder.itemView.findViewById<TextView>(R.id.id_reserva)?.text = "Número reserva:\n "+ item?.numero.toString()
+        holder.itemView.findViewById<TextView>(R.id.monto_reserva)?.text = "$"+ item?.monto.toString()
+        holder.itemView.findViewById<TextView>(R.id.formas_pago)?.text = "Cantidad asientos:\n "+ item?.cantAsientos.toString()
+        holder.itemView.findViewById<TextView>(R.id.vuelo)?.text = item?.vuelos?.horario?.ruta?.origen+"/\n"+ item?.vuelos?.horario?.ruta?.destino
 
         holder.itemView.setOnClickListener {
             val intent = Intent(mcontext, Reserva_activity::class.java)
