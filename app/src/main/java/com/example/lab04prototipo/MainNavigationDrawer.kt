@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.RecyclerView
 import com.example.lab04prototipo.Data.DataBaseDummy
 import com.example.lab04prototipo.helper.CrudTipoAviones
 import com.example.lab04prototipo.helper.ListaVuelos
@@ -34,6 +36,9 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
         setContentView(R.layout.activity_main_navigation_drawer)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        var profileName: String? = getIntent().getStringExtra("usuario");
+       // holder.itemView.findViewById<TextView>(R.id.userText)?.text = profileName
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
