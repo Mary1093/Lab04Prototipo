@@ -69,7 +69,7 @@ object DataBaseDummy : Serializable{
 
     private fun inicializarReservas(): ArrayList<Reserva> {
         var reservas = ArrayList<Reserva>()
-        reservas.add(Reserva(1,150000,1, formasPago[0], usuarios[0],vuelos[0],"no pagado"))
+        reservas.add(Reserva(1,150000,1, formasPago[0], usuarios[0],vuelos[0],"Pagado"))
         return reservas
     }
 

@@ -34,7 +34,7 @@ class AsientosActivity : AppCompatActivity() {
 
         var btn_pagar: Button = binding.pagar
 
-        var reserva: Reserva? = intent.extras?.get("reserva") as Reserva?
+       // var reserva: Reserva? = intent.extras?.get("reserva") as Reserva?
 
         btn_pagar.setOnClickListener(){
 
@@ -42,7 +42,7 @@ class AsientosActivity : AppCompatActivity() {
             intent.putExtra("asientosSeleccionados", ArrayList(asientos))
             intent.putExtra("idVuelo",vuelito)
             intent.putExtra("formaPago",formaP)
-            intent.putExtra("reserva",reserva)
+            //intent.putExtra("reserva",reserva)
             startActivity(intent)
         }
 

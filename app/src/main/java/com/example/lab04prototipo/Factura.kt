@@ -42,9 +42,6 @@ class Factura : AppCompatActivity() {
         setContentView(R.layout.activity_factura)
         initActivity()
 
-       /* var reserva: Reserva? = intent.extras?.get("reserva") as Reserva?
-       // var cant = intent.extras?.get("reserva").toString()?.toInt()*/
-
         val numberList = intent.getSerializableExtra( "asientosSeleccionados" )
 
         val formaPa : String = intent.extras?.get("formaPago").toString()
@@ -54,26 +51,17 @@ class Factura : AppCompatActivity() {
         vueloFactura?.text = "Salida: "+vuelito?.horario?.diaSemana+" "+"Hora: "+vuelito?.horario?.horaSalida+":"+
                 vuelito?.horario?.minutosSalida+"0"+" / "+"Llegada: "+vuelito?.horario?.horaLlegada+":"+
                 vuelito?.horario?.minutosLlegada+"0"
+
         ruta?.text = "Origen: "+vuelito?.horario?.ruta?.origen+" / "+"Destino: "+vuelito?.horario?.ruta?.destino
+
         Precio_factura?.text = "Costo: $"+vuelito?.horario?.precio.toString()+" con un %"+vuelito?.horario?.descuento +" incluído"
+
         CantidadAsientos?.text ="Asientos: "+numberList.toString()
+
         formaP?.text  = "Forma de Pago: "+ formaPa
 
-        val pago = FormaPago(1, "Credito")
-
-        val us = Usuario("user1","123","Maria","Lopez","marilopez2410","24/10/1993","Heredia","4445","5555555", 1)
-
-
-        var vcantidad_asientos = numberList.toString()?.toInt()
-
-        var numreserva = 2
-
-
         pagar_btn?.setOnClickListener(){
-            if (vuelito != null) {
-                DB.reservas.add(Reserva(numreserva,vuelito.horario.precio,2, pago,us,vuelito ,"Pago"))
-            }
-
+            
             val intent = Intent(applicationContext, MainNavigationDrawer::class.java)
            // intent.putExtra("reserva",reserva)
             message("Pago exitoso!")

@@ -24,7 +24,7 @@ class Reserva_activity: MainActivity() {
     private var monto_pagar: TextView? = null
     private var forma_pago: EditText? = null
     private var reservar_btn: Button? = null
-    lateinit var reserva:Reserva
+    //lateinit var reserva:Reserva
     override fun initActivity(){
         usuario_reserva = findViewById(R.id.usuario_reserva)
         cantidad_asientos = findViewById(R.id.cantidad_asientos)
@@ -60,8 +60,8 @@ class Reserva_activity: MainActivity() {
 
 
             if (vuelito != null) {
-               // DB.reservas.add(Reserva(numreserva,vuelito.horario.precio,vcantidad_asientos, pago,us, vuelito,"no pagado"))
-                 reserva = Reserva(numreserva,vuelito.horario.precio,vcantidad_asientos, pago,us, vuelito,"no pagado")
+               DB.reservas.add(Reserva(numreserva,vuelito.horario.precio,vcantidad_asientos, pago,us, vuelito,"Pagado"))
+                 //reserva = Reserva(numreserva,vuelito.horario.precio,vcantidad_asientos, pago,us, vuelito,"no pagado")
             }
 
 
@@ -70,7 +70,7 @@ class Reserva_activity: MainActivity() {
             intent.putExtra("cantidadAsientos", vcantidad_asientos)
             intent.putExtra("idVuelo",vuelito)
             intent.putExtra("formaPago",vforma_pago)
-            intent.putExtra("reserva",reserva)
+            //intent.putExtra("reserva",reserva)
 
             startActivity(intent)
             finish()
