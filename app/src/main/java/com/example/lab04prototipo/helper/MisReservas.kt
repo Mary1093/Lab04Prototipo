@@ -62,7 +62,7 @@ class MisReservas : AppCompatActivity(){
 
         })
         getListOfReservas()
-//AQUI TENGO QUE MANDAR EL DATO
+
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                 val fromPosition: Int = viewHolder.adapterPosition
@@ -80,7 +80,7 @@ class MisReservas : AppCompatActivity(){
                 var quien: String = ""
 
                 if(direction == ItemTouchHelper.RIGHT){
-                    listaReservas = Reserva(DB.reservas[position].numero, DB.reservas[position].monto, DB.reservas[position].cantAsientos, DB.reservas[position].formaPago, DB.reservas[position].usuario, DB.reservas[position].vuelos)
+                    listaReservas = Reserva(DB.reservas[position].numero, DB.reservas[position].monto, DB.reservas[position].cantAsientos, DB.reservas[position].formaPago, DB.reservas[position].usuario, DB.reservas[position].vuelos,DB.reservas[position].estado)
                     //DB.deletePerson(position)
                     lista.adapter?.notifyItemRemoved(position)
 
@@ -91,7 +91,7 @@ class MisReservas : AppCompatActivity(){
                     adaptador = RecyclerView_AdapterMisReservas(DB.reservas)
                     lista.adapter = adaptador
                 }else{
-                    listaReservas = Reserva(DB.reservas[position].numero, DB.reservas[position].monto, DB.reservas[position].cantAsientos, DB.reservas[position].formaPago, DB.reservas[position].usuario, DB.reservas[position].vuelos)
+                    listaReservas = Reserva(DB.reservas[position].numero, DB.reservas[position].monto, DB.reservas[position].cantAsientos, DB.reservas[position].formaPago, DB.reservas[position].usuario, DB.reservas[position].vuelos,DB.reservas[position].estado)
                     archived.add(listaReservas)
 
                     //personas.deletePerson(position)

@@ -7,5 +7,6 @@ class Reserva (var numero: Int,
                var cantAsientos: Int,
                var formaPago: FormaPago,
                var usuario: Usuario,
-               var vuelos: Vuelos
+               var vuelos: Vuelos,
+               var estado: String
                ): Serializable {}

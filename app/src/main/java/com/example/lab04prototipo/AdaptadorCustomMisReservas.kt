@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lab04prototipo.Entities.Reserva
 
@@ -37,6 +38,9 @@ class RecyclerView_AdapterMisReservas(private var items: ArrayList<Reserva>): Re
     override fun getItemCount(): Int {
         return itemsList?.size!!
     }
+    fun message(text: String?){
+        Toast.makeText(mcontext, text, Toast.LENGTH_LONG).show()
+    }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = itemsList?.get(position)
@@ -45,13 +49,15 @@ class RecyclerView_AdapterMisReservas(private var items: ArrayList<Reserva>): Re
         holder.itemView.findViewById<TextView>(R.id.monto_reserva)?.text = "$"+ item?.monto.toString()
         holder.itemView.findViewById<TextView>(R.id.formas_pago)?.text = "Cantidad asientos:\n "+ item?.cantAsientos.toString()
         holder.itemView.findViewById<TextView>(R.id.vuelo)?.text = item?.vuelos?.horario?.ruta?.origen+"/\n"+ item?.vuelos?.horario?.ruta?.destino
+        holder.itemView.findViewById<TextView>(R.id.estado)?.text = "Estado:\n "+item?.estado.toString()
 
-       /* holder.itemView.setOnClickListener {
-            val intent = Intent(mcontext, Reserva_activity::class.java)
-            intent.putExtra("passselectedcountry", itemsList?.get(position))
-            mcontext.startActivity(intent)
-            Log.d("Selected:", itemsList?.get(position)?.numero.toString())
-        }*/
+        holder.itemView.setOnClickListener {
+
+
+            item?.estado="Pago"
+            holder.itemView.findViewById<TextView>(R.id.estado)?.text = "Estado:\n "+item?.estado.toString()
+            message("Pago exitoso!")
+        }
     }
 
 

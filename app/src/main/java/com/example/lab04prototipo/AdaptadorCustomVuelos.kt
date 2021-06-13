@@ -56,7 +56,6 @@ class RecyclerView_AdapterVuelos(private var items: ArrayList<Vuelos>): Recycler
             intent.putExtra("usuario",user)
 
 
-
             mcontext.startActivity(intent)
             Log.d("Selected:", itemsList?.get(position)?.codigo.toString())
         }

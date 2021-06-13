@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.lab04prototipo.Asientos_activity
 import com.example.lab04prototipo.Data.DataBaseDummy
 import com.example.lab04prototipo.Entities.FormaPago
 import com.example.lab04prototipo.Entities.Reserva
@@ -31,8 +32,6 @@ class Reserva_activity: MainActivity() {
         monto_pagar = findViewById(R.id.monto_pagar)
         forma_pago = findViewById(R.id.forma_pago)
         reservar_btn = findViewById(R.id.reservar)
-
-
 
     }
 
@@ -61,13 +60,12 @@ class Reserva_activity: MainActivity() {
             var numvuelo = usuario_reserva?.text
 
             if (vuelito != null) {
-                DB.reservas.add(Reserva(numreserva,vuelito.horario.precio,vcantidad_asientos, pago,us, vuelito))
+                DB.reservas.add(Reserva(numreserva,vuelito.horario.precio,vcantidad_asientos, pago,us, vuelito,"no pagado"))
+
             }
 
-            numreserva++
-
-            val intent = Intent(applicationContext, MainNavigationDrawer::class.java)
-            intent.putExtra("model", DB)
+            val intent = Intent(applicationContext, Asientos_activity::class.java)
+            intent.putExtra("cantidadAsientos", vcantidad_asientos)
             startActivity(intent)
             finish()
 

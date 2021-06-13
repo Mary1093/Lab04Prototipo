@@ -21,19 +21,19 @@
             android:id="@+id/nav_misReservas"
             android:icon="@drawable/misreservas"
             android:title="Mis reservas" />
-        <item
-            android:id="@+id/nav_pagarReserva"
-            android:icon="@drawable/pagar"
-            android:title="Pagar reserva" />
-        <item
-            android:id="@+id/nav_checkIn"
-            android:icon="@drawable/check"
-            android:title="CheckIn" />
+        <!--   <item
+               android:id="@+id/nav_pagarReserva"
+               android:icon="@drawable/pagar"
+               android:title="Pagar reserva" />-->
+           <item
+               android:id="@+id/nav_checkIn"
+               android:icon="@drawable/check"
+               android:title="CheckIn" />
 
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/salir"
-            android:title="Logout" />
+           <item
+               android:id="@+id/nav_slideshow"
+               android:icon="@drawable/salir"
+               android:title="Logout" />
 
-    </group>
-</menu>
+       </group>
+   </menu>

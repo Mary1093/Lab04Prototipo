@@ -127,7 +127,7 @@
                 android:layout_span="2"
                 android:background="#FF183277"
                 android:enabled="true"
-                android:text="Reservar"
+                android:text="Seleccionar Asiento(s)"
                 android:textColor="#FFFFFF" />
         </TableRow>
 
