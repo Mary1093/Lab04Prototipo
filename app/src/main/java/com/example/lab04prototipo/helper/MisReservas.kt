@@ -1,5 +1,6 @@
 package com.example.lab04prototipo.helper
 
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.os.Bundle
@@ -14,9 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lab04prototipo.Data.DataBaseDummy
 import com.example.lab04prototipo.Entities.Reserva
 import com.example.lab04prototipo.Entities.Vuelos
+import com.example.lab04prototipo.MainActivity
 import com.example.lab04prototipo.R
 import com.example.lab04prototipo.RecyclerView_AdapterMisReservas
 import com.example.lab04prototipo.RecyclerView_AdapterVuelos
+import com.example.lab04prototipo.activities.Registro_activity
 import com.google.android.material.snackbar.Snackbar
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 import java.util.*
@@ -59,12 +62,12 @@ class MisReservas : AppCompatActivity(){
 
         })
         getListOfReservas()
-
+//AQUI TENGO QUE MANDAR EL DATO
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN or ItemTouchHelper.START or ItemTouchHelper.END, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
                 val fromPosition: Int = viewHolder.adapterPosition
                 val toPosition: Int = target.adapterPosition
-
+                position = viewHolder.adapterPosition
                 Collections.swap(DB.reservas, fromPosition, toPosition)
 
                 lista.adapter?.notifyItemMoved(fromPosition, toPosition)

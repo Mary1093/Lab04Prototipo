@@ -22,6 +22,7 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lab04prototipo.Data.DataBaseDummy
+import com.example.lab04prototipo.Entities.Usuario
 import com.example.lab04prototipo.helper.CrudTipoAviones
 import com.example.lab04prototipo.helper.ListaVuelos
 import com.example.lab04prototipo.helper.MisReservas
@@ -37,7 +38,7 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        var profileName: String? = getIntent().getStringExtra("usuario");
+        //var profileName: String? = getIntent().getStringExtra("usuario");
        // holder.itemView.findViewById<TextView>(R.id.userText)?.text = profileName
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
@@ -82,6 +83,10 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
             }*/
             R.id.nav_gallery -> {
                 val i = Intent(this, ListaVuelos::class.java)
+
+                var user: Usuario? = intent.extras?.get("usuario") as Usuario?
+                intent.putExtra("usuario", user)
+
                 startActivity(i)
             }
             R.id.nav_misReservas ->{
@@ -102,4 +107,5 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
          startActivity(intent)
          finish()
     }
+
 }

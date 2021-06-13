@@ -14,6 +14,7 @@ import com.example.lab04prototipo.Data.DataAccessLogin
 import com.example.lab04prototipo.Data.DataBaseDummy
 import com.example.lab04prototipo.activities.Change_password
 import com.example.lab04prototipo.activities.Registro_activity
+import com.example.lab04prototipo.activities.Reserva_activity
 
 open class MainActivity : AppCompatActivity() {
 

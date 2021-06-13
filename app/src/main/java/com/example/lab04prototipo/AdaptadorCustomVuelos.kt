@@ -11,6 +11,7 @@ import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lab04prototipo.Entities.TipoAvion
+import com.example.lab04prototipo.Entities.Usuario
 import com.example.lab04prototipo.Entities.Vuelos
 import com.example.lab04prototipo.activities.Reserva_activity
 
@@ -30,6 +31,7 @@ class RecyclerView_AdapterVuelos(private var items: ArrayList<Vuelos>): Recycler
         val personListView = LayoutInflater.from(parent.context).inflate(R.layout.template_vuelos, parent, false)
         val sch = PersonHolder(personListView)
         mcontext = parent.context
+
         return sch
     }
 
@@ -46,8 +48,15 @@ class RecyclerView_AdapterVuelos(private var items: ArrayList<Vuelos>): Recycler
         holder.itemView.findViewById<TextView>(R.id.horario2)?.text = "Precio:\n $"+item?.horario?.precio.toString()
 
         holder.itemView.setOnClickListener {
+
             val intent = Intent(mcontext, Reserva_activity::class.java)
-            intent.putExtra("passselectedcountry", itemsList?.get(position))
+            intent.putExtra("idVuelo", item)
+
+            var user: Usuario? = intent.extras?.get("usuario") as Usuario?
+            intent.putExtra("usuario",user)
+
+
+
             mcontext.startActivity(intent)
             Log.d("Selected:", itemsList?.get(position)?.codigo.toString())
         }
