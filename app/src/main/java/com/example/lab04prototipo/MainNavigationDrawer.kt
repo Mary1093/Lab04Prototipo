@@ -103,7 +103,7 @@ class MainNavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationIte
     }
     fun logout(){
         val intent = Intent(applicationContext, MainActivity::class.java)
-         intent.putExtra("model", DB)
+         //intent.putExtra("model", DB)
          startActivity(intent)
          finish()
     }
