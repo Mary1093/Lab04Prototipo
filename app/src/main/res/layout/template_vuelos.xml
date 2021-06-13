@@ -15,7 +15,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:layout_weight="0"
-        app:srcCompat="@drawable/vuelostemplate" />
+        app:srcCompat="@drawable/planeico" />
 
     <TextView
         android:id="@+id/id_vuelo"

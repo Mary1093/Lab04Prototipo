@@ -61,7 +61,7 @@ class Factura : AppCompatActivity() {
         formaP?.text  = "Forma de Pago: "+ formaPa
 
         pagar_btn?.setOnClickListener(){
-            
+
             val intent = Intent(applicationContext, MainNavigationDrawer::class.java)
            // intent.putExtra("reserva",reserva)
             message("Pago exitoso!")

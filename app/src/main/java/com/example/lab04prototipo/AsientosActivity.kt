@@ -10,6 +10,7 @@ import android.view.Gravity
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.example.lab04prototipo.Entities.Reserva
 import com.example.lab04prototipo.Entities.Vuelos
@@ -20,6 +21,11 @@ class AsientosActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAsientosActivityBinding
     private var cant: TextView? = null
     val asientos = mutableListOf<String>()
+
+
+    fun message(text: String?){
+        Toast.makeText(applicationContext, text, Toast.LENGTH_LONG).show()
+    }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,12 +44,17 @@ class AsientosActivity : AppCompatActivity() {
 
         btn_pagar.setOnClickListener(){
 
-            val intent = Intent(applicationContext, Factura::class.java)
-            intent.putExtra("asientosSeleccionados", ArrayList(asientos))
-            intent.putExtra("idVuelo",vuelito)
-            intent.putExtra("formaPago",formaP)
-            //intent.putExtra("reserva",reserva)
-            startActivity(intent)
+            if(asientos.isEmpty()){
+                message("Debe seleccionar los asientos!!!")
+            }else {
+
+                val intent = Intent(applicationContext, Factura::class.java)
+                intent.putExtra("asientosSeleccionados", ArrayList(asientos))
+                intent.putExtra("idVuelo", vuelito)
+                intent.putExtra("formaPago", formaP)
+                //intent.putExtra("reserva",reserva)
+                startActivity(intent)
+            }
         }
 
     }
@@ -67,12 +78,14 @@ class AsientosActivity : AppCompatActivity() {
             for (j in 1..columnas) {
                 val btn: Button = Button(applicationContext)
                 btn.layoutParams = LinearLayout.LayoutParams(110, 110)
-                btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#3268F3"))
+                btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#585EF4"))
+                //btn.setText(i.toString() + j.toString())
                 btn.tag = i.toString() + j.toString()
                 layout.addView(btn)
                 btn.setOnClickListener {
                     if (btn.backgroundTintList!!.defaultColor == -15348162) {
-                        btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#3268F3"))
+                        btn.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#585EF4"))
+
                         asientos.remove(btn.tag.toString())
                     } else if(asientos.count() < cantidadA.toInt()) {
                         asientos.add(btn.tag.toString());

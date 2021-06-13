@@ -69,14 +69,15 @@
         android:gravity="center"
         android:orientation="vertical">
 
+
         <Button
             android:id="@+id/pagar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Comprar"
-            app:backgroundTint="#3F51B5"
-            app:cornerRadius="300dp" />
+            android:background="#FF183277"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 
