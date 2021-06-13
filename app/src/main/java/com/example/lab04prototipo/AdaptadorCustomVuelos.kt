@@ -49,9 +49,11 @@ class RecyclerView_AdapterVuelos(private var items: ArrayList<Vuelos>): Recycler
 
         holder.itemView.setOnClickListener {
 
+            //mando el objeto vuelo
             val intent = Intent(mcontext, Reserva_activity::class.java)
             intent.putExtra("idVuelo", item)
 
+            //mando el usuario **REVISAR**
             var user: Usuario? = intent.extras?.get("usuario") as Usuario?
             intent.putExtra("usuario",user)
 

@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab04Prototipo">
-        <activity android:name=".Asientos_activity"
-            android:label="Selección de asientos">
-
-        </activity>
-        <activity android:name=".helper.CrudTipoAviones"></activity>
-        <activity android:name=".helper.ListaVuelos"></activity>
-        <activity android:name=".helper.MisReservas"></activity>
+        <activity android:name=".Factura"></activity>
+        <activity
+            android:name=".AsientosActivity"
+            android:label="Selección de asientos"></activity>
+        <activity android:name=".helper.CrudTipoAviones" />
+        <activity android:name=".helper.ListaVuelos" />
+        <activity android:name=".helper.MisReservas" />
         <activity
             android:name=".MainNavigationDrawer"
             android:label="@string/title_activity_main_navigation_drawer"
-            android:theme="@style/Theme.Lab04Prototipo.NoActionBar"></activity>
+            android:theme="@style/Theme.Lab04Prototipo.NoActionBar" />
         <!--
     <activity
             android:name=".Registro"
@@ -29,19 +29,13 @@
         -->
         <activity
             android:name=".activities.Registro_activity"
-            android:label="Registro">
-
-        </activity>
+            android:label="Registro"></activity>
         <activity
             android:name=".activities.Change_password"
-            android:label="Cambio de contraseña">
-
-        </activity>
+            android:label="Cambio de contraseña"></activity>
         <activity
             android:name=".activities.Reserva_activity"
-            android:label="Reserva">
-
-        </activity>
+            android:label="Reserva"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
