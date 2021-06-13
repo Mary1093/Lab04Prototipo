@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import com.example.lab04prototipo.Entities.Reserva
 import com.example.lab04prototipo.Entities.Vuelos
 import com.example.lab04prototipo.databinding.ActivityAsientosActivityBinding
 
@@ -32,12 +33,16 @@ class AsientosActivity : AppCompatActivity() {
         val formaP : String = intent.extras?.get("formaPago").toString()
 
         var btn_pagar: Button = binding.pagar
+
+        var reserva: Reserva? = intent.extras?.get("reserva") as Reserva?
+
         btn_pagar.setOnClickListener(){
 
             val intent = Intent(applicationContext, Factura::class.java)
             intent.putExtra("asientosSeleccionados", ArrayList(asientos))
             intent.putExtra("idVuelo",vuelito)
             intent.putExtra("formaPago",formaP)
+            intent.putExtra("reserva",reserva)
             startActivity(intent)
         }
 
