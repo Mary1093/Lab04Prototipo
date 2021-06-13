@@ -50,7 +50,7 @@ class Reserva_activity: MainActivity() {
         val us = Usuario("user1","123","Maria","Lopez","marilopez2410","24/10/1993","Heredia","4445","5555555", 1)
 
         reservar_btn?.setOnClickListener(){
-            var vusuario_reserva = usuario_reserva?.text
+          //  var vusuario_reserva = usuario_reserva?.text
            // var vcantidad_asientos = cantidad_asientos?.text as Int
             var vcantidad_asientos = cantidad_asientos?.text.toString()?.toInt()
             var vmonto_pagar= monto_pagar?.text
@@ -64,13 +64,11 @@ class Reserva_activity: MainActivity() {
                  //reserva = Reserva(numreserva,vuelito.horario.precio,vcantidad_asientos, pago,us, vuelito,"no pagado")
             }
 
-
-
             val intent = Intent(applicationContext, AsientosActivity::class.java)
             intent.putExtra("cantidadAsientos", vcantidad_asientos)
             intent.putExtra("idVuelo",vuelito)
             intent.putExtra("formaPago",vforma_pago)
-            //intent.putExtra("reserva",reserva)
+           // intent.putExtra("user",user)
 
             startActivity(intent)
             finish()

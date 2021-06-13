@@ -54,9 +54,9 @@ class RecyclerView_AdapterMisReservas(private var items: ArrayList<Reserva>): Re
         holder.itemView.setOnClickListener {
 
 
-            item?.estado="Pago"
+          /*  item?.estado="Pago"
             holder.itemView.findViewById<TextView>(R.id.estado)?.text = "Estado:\n "+item?.estado.toString()
-            message("Pago exitoso!")
+            message("Pago exitoso!")*/
         }
     }
 

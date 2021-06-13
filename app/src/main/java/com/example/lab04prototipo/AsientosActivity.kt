@@ -54,6 +54,7 @@ class AsientosActivity : AppCompatActivity() {
                 intent.putExtra("formaPago", formaP)
                 //intent.putExtra("reserva",reserva)
                 startActivity(intent)
+                finish()
             }
         }
 
